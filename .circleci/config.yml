@@ -1,31 +1,31 @@
   version: 2.1
   jobs:
-    build:
+    BUILD_A:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command
-    acceptance_test_1:
+    BUILD_B:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    acceptance_test_2:
+    BUILD_C:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    acceptance_test_3:
+    BUILD_D:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command     
-    acceptance_test_4:
+    BUILD_E:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    deploy:
+    BUILD_F:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
@@ -35,22 +35,22 @@
     version: 2
     build_accept_deploy:
       jobs:
-        - build
-        - acceptance_test_1:
+        - build_A
+        - build_B:
             requires:
-              - build
-        - acceptance_test_2:
+              - build_A
+        - build_C:
             requires:
-              - build
-        - acceptance_test_3:
+              - build_A
+        - build_D:
             requires:
-              - build
-        - acceptance_test_4:
+              - build_A
+        - build_E:
             requires:
-              - build
-        - deploy:
+              - build_A
+        - build_F:
             requires:
-              - acceptance_test_1
-              - acceptance_test_2
-              - acceptance_test_3
-              - acceptance_test_4
+              - build_B
+              - build_C
+              - build_D
+              - build_E
