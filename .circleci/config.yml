@@ -46,4 +46,4 @@
         - deploy:
             requires:
               - acceptance_test_3
-              - acceptance_test_4
+              - BUILD_C
