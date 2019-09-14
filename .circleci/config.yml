@@ -5,7 +5,7 @@
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command
-    acceptance_test_1:
+    BUILD_B:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
@@ -36,7 +36,7 @@
     AAAAAA:
       jobs:
         - BUILD_A
-        - acceptance_test_1:
+        - BUILD_B:
             requires:
               - BUILD_A
         - acceptance_test_2:
@@ -50,7 +50,7 @@
               - BUILD_A
         - deploy:
             requires:
-              - acceptance_test_1
+              - BUILD_B
               - acceptance_test_2
               - acceptance_test_3
               - acceptance_test_4
