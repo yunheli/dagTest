@@ -1,31 +1,31 @@
   version: 2.1
   jobs:
-    build:
+    A:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command
-    acceptance_test_1:
+    B:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    acceptance_test_2:
+    C:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    acceptance_test_3:
+    D:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command     
-    acceptance_test_4:
+    E:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    deploy:
+    F:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
@@ -35,20 +35,20 @@
     version: 2
     build_accept_deploy:
       jobs:
-        - build
-        - acceptance_test_1:
+        - A
+        - B:
             requires:
-              - build
-        - acceptance_test_2:
+              - A
+        - C:
             requires:
-              - build
-        - acceptance_test_3:
+              - A
+        - D:
             requires:
-              - build
-        - acceptance_test_4:
+              - A
+        - E:
             requires:
-              - build
-        - deploy:
+              - A
+        - F:
             requires:
               - acceptance_test_1
               - acceptance_test_2
