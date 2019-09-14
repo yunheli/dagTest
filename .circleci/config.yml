@@ -42,8 +42,8 @@
         - acceptance_test_4:
             requires:
               - BUILD_A
-              - BUILD_B
+              - BUILD_C
         - deploy:
             requires:
               - acceptance_test_3
-              - BUILD_C
+              - BUILD_B
