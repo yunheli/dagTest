@@ -37,20 +37,13 @@
       jobs:
         - BUILD_A
         - BUILD_B:
-            requires:
-              - BUILD_A
         - BUILD_C:
-            requires:
-              - BUILD_A
         - acceptance_test_3:
-            requires:
-              - BUILD_A
         - acceptance_test_4:
             requires:
               - BUILD_A
+              - BUILD_B
         - deploy:
             requires:
-              - BUILD_B
-              - BUILD_C
               - acceptance_test_3
               - acceptance_test_4
