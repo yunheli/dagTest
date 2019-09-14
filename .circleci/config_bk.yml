@@ -1,0 +1,92 @@
+  version: 2.1
+  jobs:
+    A:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command
+    B:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    C:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    D:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command     
+    E:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    F:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    # G:
+    #   docker: 
+    #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    #   steps:
+    #     - run: echo "hello world" # run the `echo` command  
+    # H:
+    #   docker: 
+    #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    #   steps:
+    #     - run: echo "hello world" # run the `echo` command  
+    # I:
+    #   docker: 
+    #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    #   steps:
+    #     - run: echo "hello world" # run the `echo` command  
+    # J:
+    #   docker: 
+    #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    #   steps:
+    #     - run: echo "hello world" # run the `echo` command  
+    # K:
+    #   docker: 
+    #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    #   steps:
+    #     - run: echo "hello world" # run the `echo` command     
+  workflows:
+    version: 2
+    A_and_B:
+      jobs:
+        - A
+        - B
+        - C
+        - D
+        - E
+            requires:
+              - A
+            # - B
+        - F
+            requires:
+              - C
+            # - D
+        # - G
+        #   requires:
+        #     - E
+        # - H
+        #   requires:
+        #     - E        
+        # - I
+        #   requires:
+        #     - F        
+        # - J
+        #   requires:
+        #     - F        
+        # - K
+        #   requires:
+        #     - G
+        #     - H
+        #     - I
+        #     - J        
+      
