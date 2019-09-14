@@ -63,11 +63,11 @@
         - B
         - C
         - D
-        - E
+        - E:
           requires:
             - A
             - B
-        - F
+        - F:
           requires:
             - C
             - D
