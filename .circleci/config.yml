@@ -64,12 +64,12 @@
         - C
         - D
         - E
-          # requires:
-          #   - A
+            requires:
+              - A
             # - B
         - F
-          # requires:
-          #   - C
+            requires:
+              - C
             # - D
         # - G
         #   requires:
