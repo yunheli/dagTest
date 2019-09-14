@@ -66,11 +66,11 @@
         - E:
           requires:
             - A
-            - B
+            # - B
         - F:
           requires:
             - C
-            - D
+            # - D
         # - G
         #   requires:
         #     - E
