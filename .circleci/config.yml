@@ -36,9 +36,9 @@
     AAAAAA:
       jobs:
         - BUILD_A
-        - BUILD_B:
-        - BUILD_C:
-        - acceptance_test_3:
+        - BUILD_B
+        - BUILD_C
+        - acceptance_test_3
         - acceptance_test_4:
             requires:
               - BUILD_A
