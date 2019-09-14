@@ -72,7 +72,9 @@
         - PUBLISH_A:
             requires:
               - acceptance_test_4   
-              - BUILD_A           
+              - BUILD_A 
+              - BUILD_C    
+              - PUBLISH_D      
         - PUBLISH_C:
             requires:
               - deploy
