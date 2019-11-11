@@ -21,3 +21,10 @@ jobs:
           echo "uname:" $(uname -a)
           echo "arch: " $(arch)
         name: Show system information
+
+workflows:
+  Hello Workflow:
+    jobs:
+    - hello/hello-build
+  version: 2
+
