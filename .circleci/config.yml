@@ -28,7 +28,9 @@ jobs:
         mentions: 'USERID1,USERID2,'
         message: This is a custom message notification
         webhook: webhook
-        
+orbs:
+  slack: circleci/slack@x.y.z
+version: 2.1        
 workflows:
   Hello Workflow:
     jobs:
