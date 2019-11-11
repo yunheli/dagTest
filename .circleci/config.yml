@@ -5,6 +5,17 @@
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command
+        - run: 
+          command: |- 
+            mkdir 201911111515
+            cd 201911111515
+            touch a
+            touch b
+            touch c
+            ls
+        - run: 
+          command: |- 
+            ls    
     BUILD_B:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
