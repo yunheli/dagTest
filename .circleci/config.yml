@@ -30,7 +30,7 @@ jobs:
         webhook: webhook
 orbs:
   slack: circleci/slack@x.y.z
-version: 2.1        
+
 workflows:
   Hello Workflow:
     jobs:
