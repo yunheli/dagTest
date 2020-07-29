@@ -6,7 +6,7 @@ version: "1.0"
 stages:
   - "clone"
   - "build"
-  - "abtest"
+  - "abctest"
 
 steps:
   clone:
@@ -31,7 +31,7 @@ steps:
       content: "FROM node:10.13.0-alpine\n          WORKDIR /root/onboarding\n          COPY . /\n          CMD npm start"
     stage: "build"
 
-  abtest:
+  abctest:
     title: "Running test"
     type: "freestyle" # Run any command
     image: "ubuntu:latest" # The image in which command will be executed
