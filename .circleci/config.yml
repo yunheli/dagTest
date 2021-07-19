@@ -1,49 +1,83 @@
-  version: 2.1
+version: 2.1
   jobs:
-    A:
+    BUILD_A:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command
-    B:
+    BUILD_B:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    C:
+    BUILD_C:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    D:
+    acceptance_test_3:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command     
-    E:
+    acceptance_test_4:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
-    F:
+    deploy:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command   
+    PUBLISH_A:
       docker: 
         - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
       steps:
         - run: echo "hello world" # run the `echo` command  
- 
+    PUBLISH_B:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    PUBLISH_C:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command  
+    PUBLISH_D:
+      docker: 
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+      steps:
+        - run: echo "hello world" # run the `echo` command          
   workflows:
     version: 2
-    A_and_B:
+    AAAAAA:
       jobs:
-        - A
-        - B
-        - C
-        - D
-        - E
+        - BUILD_A
+        - BUILD_B
+        - BUILD_C
+        - acceptance_test_3
+        - acceptance_test_4:
             requires:
-              - A
-        - F
+              - BUILD_A
+              - BUILD_C
+        - deploy:
             requires:
-              - C
- 
-      
+              - acceptance_test_3
+              - BUILD_B
+        - PUBLISH_B:
+            requires:
+              - acceptance_test_4
+        - PUBLISH_A:
+            requires:
+              - acceptance_test_4   
+              - BUILD_A 
+              - BUILD_C    
+              - PUBLISH_D      
+        - PUBLISH_C:
+            requires:
+              - deploy
+        - PUBLISH_D:
+            requires:
+              - deploy 
